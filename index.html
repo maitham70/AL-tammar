@@ -4,70 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>مكتب التمار - الخدمات المتكاملة</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        body { background-color: #f4f7f6; font-family: 'Cairo', sans-serif; margin: 0; padding: 0; color: #333; }
-        header { background-color: white; padding: 20px; text-align: center; border-bottom: 6px solid #ff8c00; }
-        header img { max-width: 280px; height: auto; }
-        
-        .welcome-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); display: flex; justify-content: center; align-items: center; z-index: 10000; }
-        .welcome-box { background: white; padding: 25px; border-radius: 20px; text-align: center; max-width: 80%; }
-        .close-btn { background: #ff8c00; color: white; border: none; padding: 10px 20px; border-radius: 20px; cursor: pointer; font-family: 'Cairo'; font-weight: bold; margin-top: 15px; }
-
-        .container { display: flex; justify-content: center; flex-wrap: wrap; padding: 20px; gap: 15px; }
-        .card { background: white; border-radius: 20px; padding: 20px; width: 300px; text-align: center; border-top: 6px solid #2481cc; box-shadow: 0 5px 15px rgba(0,0,0,0.05); box-sizing: border-box; }
-        .mini-gallery img { width: 90%; height: 150px; object-fit: cover; border-radius: 10px; margin-bottom: 10px; border: 1px solid #ddd; }
-        .btn { display: block; background: #2481cc; color: white; padding: 12px; text-decoration: none; border-radius: 25px; font-weight: bold; margin-top: 10px; }
-
-        .info-section { background: #fff; padding: 20px; text-align: center; border-top: 1px solid #ddd; margin-top: 20px; }
-        .work-time { color: #ff8c00; font-weight: bold; margin-bottom: 10px; }
-        footer { text-align: center; padding: 30px; color: #888; }
+        body { font-family: 'Tajawal', sans-serif; background-color: #f4f4f9; margin: 0; padding: 0; text-align: center; color: #333; }
+        header { background: white; padding: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .logo { max-width: 150px; transition: transform 0.3s; }
+        .logo:hover { transform: scale(1.1); }
+        h1 { color: #2c3e50; margin-top: 10px; }
+        .container { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; padding: 20px; }
+        .card { background: white; border-radius: 15px; width: 300px; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border-bottom: 5px solid #3498db; }
+        .card img { width: 100%; border-radius: 10px; height: 200px; object-fit: cover; background: #eee; }
+        .card h2 { font-size: 1.5rem; margin: 15px 0; }
+        .btn-telegram { display: inline-block; background: #0088cc; color: white; padding: 12px 25px; border-radius: 50px; text-decoration: none; font-weight: bold; margin-top: 20px; transition: 0.3s; }
+        .btn-telegram:hover { background: #006699; transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,136,204,0.3); }
     </style>
 </head>
 <body>
-
-    <div class="welcome-overlay" id="welcomeBox">
-        <div class="welcome-box">
-            <h2>مرحباً بك في مكتب التمار 😊</h2>
-            <p>نحن بخدمتكم في ناحية الفجر: قرطاسية، تصوير، وصيانة.</p>
-            <button class="close-btn" onclick="closeWelcome()">دخول الموقع</button>
-        </div>
-    </div>
-
     <header>
-        <img src="logo.png" alt="شعار مكتب التمار">
+        <img src="logo.png" alt="شعار مكتب التمار" class="logo">
         <h1>مكتب التمار</h1>
     </header>
 
     <div class="container">
-        <div class="card" style="border-top-color: #28a745;">
+        <div class="card" style="border-color: #27ae60;">
+            <img src="stationery1.jpg" alt="قرطاسية" onerror="this.src='https://via.placeholder.com/300x200/27ae60/ffffff?text=قسم+القرطاسية'">
             <h2>📚 القرطاسية</h2>
-            <div class="mini-gallery"><img src="stationery1.jpg" onerror="this.src='https://via.placeholder.com/300x150?text=Stationery'"></div>
-            <a href="https://t.me/Mai7090" class="btn" style="background:#28a745;">اطلب الآن</a>
+            <p>أجود أنواع الأدوات المكتبية والمدرسية.</p>
         </div>
-        <div class="card">
+        <div class="card" style="border-color: #2980b9;">
+            <img src="photo1.jpg" alt="تصوير" onerror="this.src='https://via.placeholder.com/300x200/2980b9/ffffff?text=قسم+التصوير'">
             <h2>📸 التصوير</h2>
-            <div class="mini-gallery"><img src="photo1.jpg" onerror="this.src='https://via.placeholder.com/300x150?text=Photography'"></div>
-            <a href="https://t.me/Mai7090" class="btn">تواصل معنا</a>
+            <p>خدمات استنساخ وطباعة ملونة وفورية.</p>
         </div>
-        <div class="card" style="border-top-color: #ffc107;">
-            <h2>📱 الصيانة</h2>
-            <div class="mini-gallery"><img src="fix1.jpg" onerror="this.src='https://via.placeholder.com/300x150?text=Maintenance'"></div>
-            <a href="https://t.me/Mai7090" class="btn" style="background:#ffc107; color:#333;">استشارة فنية</a>
+        <div class="card" style="border-color: #e67e22;">
+            <img src="fix1.jpg" alt="صيانة" onerror="this.src='https://via.placeholder.com/300x200/e67e22/ffffff?text=قسم+الصيانة'">
+            <h2>🛠️ الصيانة</h2>
+            <p>صيانة الطابعات وأجهزة الاستنساخ بدقة.</p>
         </div>
     </div>
 
-    <div class="info-section">
-        <div class="work-time">🕒 أوقات العمل: من 8:00 صباحاً - 9:00 مساءً</div>
-        <p>ناحية الفجر - محافظة ذي قار</p>
-    </div>
-
-    <footer>
-        <p>جميع الحقوق محفوظة لمكتب التمار &copy; 2026</p>
-    </footer>
-
-    <script>
-        function closeWelcome() { document.getElementById('welcomeBox').style.display = 'none'; }
-    </script>
+    <a href="https://t.me/Mai7090" class="btn-telegram">أرسل رسالة عبر تيلجرام</a>
+    
+    <p style="margin-top: 30px; color: #7f8c8d; font-size: 0.9rem;">جميع الحقوق محفوظة لمكتب التمار © 2026</p>
 </body>
 </html>
