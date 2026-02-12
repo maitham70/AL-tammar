@@ -17,8 +17,7 @@
         .card h2 { font-size: 1.5rem; color: #333; margin-bottom: 10px; }
         .card p { font-size: 1.1rem; color: #666; margin: 0; }
         .btn { display: inline-block; background: #0088cc; color: white; padding: 20px 60px; border-radius: 100px; text-decoration: none; font-size: 1.5rem; font-weight: bold; margin-top: 50px; box-shadow: 0 10px 25px rgba(0,136,204,0.3); }
-        /* إطار الصورة */
-        .image-placeholder { width: 100%; height: 150px; background: #eee; border-radius: 15px; margin-top: 15px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+        .image-placeholder { width: 100%; height: 180px; background: #eee; border-radius: 15px; margin-top: 15px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
         .image-placeholder img { width: 100%; height: 100%; object-fit: cover; }
     </style>
 </head>
@@ -31,13 +30,15 @@
         <div class="card" style="border-top-color: #9b59b6;"><h2>⏰ ساعات العمل</h2><p>من 8 صباحاً - 8 مساءً</p></div>
         <div class="card" style="border-top-color: #27ae60;"><h2>📚 القرطاسية</h2><p>تجهيزات مدرسية كاملة</p></div>
         <div class="card" style="border-top-color: #2980b9;"><h2>📸 التصوير</h2><p>استنساخ وطباعة ملونة</p></div>
+        
         <div class="card" style="border-top-color: #e67e22;">
             <h2>📱 صيانة الهاتف</h2>
             <p>تصليح وبرمجة الهواتف</p>
             <div class="image-placeholder">
-                <img src="phone_fix.jpg" alt="صيانة الهاتف" onerror="this.style.display='none'; this.parentElement.innerHTML='📸'">
+                <img src="phone_fix.jpg" onerror="this.src='phone_fix.png'; this.onerror=function(){this.src='phone_fix.jpeg'; this.onerror=function(){this.parentElement.innerHTML='<span style=\'font-size:3rem\'>📱</span>';}};" alt="صيانة الهاتف">
             </div>
         </div>
+
         <div class="card" style="border-top-color: #e74c3c;"><h2>📍 موقعنا</h2><p>العراق - ذي قار</p></div>
     </div>
     <a href="https://t.me/Mai7090" class="btn">تواصل معنا عبر تيلجرام</a>
