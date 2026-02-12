@@ -7,82 +7,78 @@
     <link rel="icon" type="image/png" href="logo.png">
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@700&display=swap" rel="stylesheet">
     <style>
-        #loader, .loader-wrapper { display: none !important; visibility: hidden !important; }
-        body { 
-            font-family: 'Tajawal', sans-serif; 
-            background-color: #f8f9fa; 
-            margin: 0; 
-            padding: 40px 20px; /* زيادة المساحة الخارجية من الحواف */
-            text-align: center; 
-        }
-        header { 
-            background: white; 
-            padding: 40px; 
-            border-radius: 25px; 
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05); 
-            margin-bottom: 50px; 
-            max-width: 1000px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .logo { 
-            width: 480px; 
-            height: auto; 
-            max-width: 95%; 
-            margin: 0 auto; 
-            display: block; 
-        }
-        h1 { color: #2c3e50; font-size: 3rem; margin: 25px 0; }
+        #loader, .loader-wrapper { display: none !important; }
+        body { font-family: 'Tajawal', sans-serif; background-color: #f0f2f5; margin: 0; padding: 20px; text-align: center; }
         
-        /* تحسين شبكة الحقول وتوسيعها */
+        header { 
+            background: white; padding: 30px; border-radius: 25px; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05); margin-bottom: 40px;
+            max-width: 1200px; margin-left: auto; margin-right: auto;
+        }
+        .logo { width: 400px; height: auto; max-width: 90%; margin: 0 auto; display: block; }
+        h1 { color: #2c3e50; font-size: 2.5rem; margin: 15px 0; }
+
+        /* توزيع الحقول لملأ الجوانب */
         .grid { 
             display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
-            gap: 30px; 
-            max-width: 1100px; 
-            margin: 0 auto; 
-            padding: 10px;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
+            gap: 20px; max-width: 1300px; margin: 0 auto; 
         }
+        
         .card { 
-            background: white; 
-            padding: 45px 30px; /* تكبير الحقول من الداخل */
-            border-radius: 25px; 
-            box-shadow: 0 8px 25px rgba(0,0,0,0.08); 
-            border-top: 10px solid #0088cc; 
+            background: white; padding: 30px 15px; border-radius: 20px; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08); border-top: 6px solid #0088cc;
             transition: 0.3s;
         }
-        .card:hover { transform: translateY(-10px); }
-        .card h2 { font-size: 2.2rem; color: #333; margin: 0; }
-        
-        /* زر تيلجرام ضخم وواضح */
+        .card h2 { font-size: 1.5rem; color: #333; margin-bottom: 10px; }
+        .card p { font-size: 1.1rem; color: #666; margin: 0; }
+
         .btn { 
-            display: inline-block; 
-            background: #0088cc; 
-            color: white; 
-            padding: 25px 65px; 
-            border-radius: 100px; 
-            text-decoration: none; 
-            font-size: 1.8rem; 
-            font-weight: bold; 
-            margin-top: 60px; 
-            box-shadow: 0 10px 30px rgba(0,136,204,0.4); 
-            transition: 0.3s; 
+            display: inline-block; background: #0088cc; color: white; 
+            padding: 20px 60px; border-radius: 100px; text-decoration: none; 
+            font-size: 1.5rem; font-weight: bold; margin-top: 50px; 
+            box-shadow: 0 10px 25px rgba(0,136,204,0.3);
         }
-        .btn:hover { background: #006699; transform: scale(1.05); }
-        footer { margin-top: 60px; color: #95a5a6; font-size: 1.1rem; }
+        footer { margin-top: 50px; color: #7f8c8d; }
     </style>
 </head>
 <body>
+
     <header>
         <img src="logo.png" alt="مكتب التمار" class="logo">
         <h1>مكتب التمار</h1>
     </header>
+
     <div class="grid">
-        <div class="card"><h2>📚 القرطاسية</h2></div>
-        <div class="card" style="border-top-color: #2980b9;"><h2>📸 التصوير</h2></div>
-        <div class="card" style="border-top-color: #e67e22;"><h2>🛠️ الصيانة</h2></div>
+        <div class="card" style="border-top-color: #9b59b6;">
+            <h2>⏰ ساعات العمل</h2>
+            <p>من 8 صباحاً - 8 مساءً</p>
+        </div>
+
+        <div class="card" style="border-top-color: #27ae60;">
+            <h2>📚 القرطاسية</h2>
+            <p>تجهيزات مدرسية كاملة</p>
+        </div>
+
+        <div class="card" style="border-top-color: #2980b9;">
+            <h2>📸 التصوير</h2>
+            <p>استنساخ وطباعة ملونة</p>
+        </div>
+
+        <div class="card" style="border-top-color: #e67e22;">
+            <h2>🛠️ الصيانة</h2>
+            <p>صيانة حاسبات وطابعات</p>
+        </div>
+
+        <div class="card" style="border-top-color: #e74c3c;">
+            <h2>📍 موقعنا</h2>
+            <p>العراق - ذي قار</p>
+        </div>
     </div>
+
     <a href="https://t.me/Mai7090" class="btn">تواصل معنا عبر تيلجرام</a>
+
     <footer>© 2026 جميع الحقوق محفوظة لمكتب التمار</footer>
+
 </body>
 </html>
