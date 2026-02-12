@@ -6,45 +6,45 @@
     <title>مكتب التمار - الخدمات المتكاملة</title>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
     <style>
+        /* إلغاء أي شاشات تحميل قديمة */
+        #loader { display: none !important; }
+        
         body { font-family: 'Tajawal', sans-serif; background-color: #f4f4f9; margin: 0; padding: 0; text-align: center; color: #333; }
-        header { background: white; padding: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-        .logo { max-width: 150px; transition: transform 0.3s; }
-        .logo:hover { transform: scale(1.1); }
-        h1 { color: #2c3e50; margin-top: 10px; }
+        header { background: white; padding: 30px 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        
+        /* تكبير الشعار */
+        .logo { width: 250px; height: auto; max-width: 90%; transition: transform 0.3s; }
+        .logo:hover { transform: scale(1.05); }
+        
+        h1 { color: #2c3e50; margin-top: 15px; font-size: 2rem; }
         .container { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; padding: 20px; }
         .card { background: white; border-radius: 15px; width: 300px; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border-bottom: 5px solid #3498db; }
         .card img { width: 100%; border-radius: 10px; height: 200px; object-fit: cover; background: #eee; }
-        .card h2 { font-size: 1.5rem; margin: 15px 0; }
-        .btn-telegram { display: inline-block; background: #0088cc; color: white; padding: 12px 25px; border-radius: 50px; text-decoration: none; font-weight: bold; margin-top: 20px; transition: 0.3s; }
-        .btn-telegram:hover { background: #006699; transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,136,204,0.3); }
+        .btn-telegram { display: inline-block; background: #0088cc; color: white; padding: 15px 35px; border-radius: 50px; text-decoration: none; font-weight: bold; margin: 30px 0; font-size: 1.2rem; box-shadow: 0 4px 15px rgba(0,136,204,0.3); }
     </style>
 </head>
 <body>
     <header>
-        <img src="logo.png" alt="شعار مكتب التمار" class="logo">
+        <img src="logo.png" alt="مكتب التمار" class="logo">
         <h1>مكتب التمار</h1>
     </header>
 
     <div class="container">
         <div class="card" style="border-color: #27ae60;">
-            <img src="stationery1.jpg" alt="قرطاسية" onerror="this.src='https://via.placeholder.com/300x200/27ae60/ffffff?text=قسم+القرطاسية'">
+            <img src="stationery1.jpg" alt="قرطاسية" onerror="this.src='https://via.placeholder.com/300x200/27ae60/ffffff?text=القرطاسية'">
             <h2>📚 القرطاسية</h2>
-            <p>أجود أنواع الأدوات المكتبية والمدرسية.</p>
         </div>
         <div class="card" style="border-color: #2980b9;">
-            <img src="photo1.jpg" alt="تصوير" onerror="this.src='https://via.placeholder.com/300x200/2980b9/ffffff?text=قسم+التصوير'">
+            <img src="photo1.jpg" alt="تصوير" onerror="this.src='https://via.placeholder.com/300x200/2980b9/ffffff?text=التصوير'">
             <h2>📸 التصوير</h2>
-            <p>خدمات استنساخ وطباعة ملونة وفورية.</p>
         </div>
         <div class="card" style="border-color: #e67e22;">
-            <img src="fix1.jpg" alt="صيانة" onerror="this.src='https://via.placeholder.com/300x200/e67e22/ffffff?text=قسم+الصيانة'">
+            <img src="fix1.jpg" alt="صيانة" onerror="this.src='https://via.placeholder.com/300x200/e67e22/ffffff?text=الصيانة'">
             <h2>🛠️ الصيانة</h2>
-            <p>صيانة الطابعات وأجهزة الاستنساخ بدقة.</p>
         </div>
     </div>
 
-    <a href="https://t.me/Mai7090" class="btn-telegram">أرسل رسالة عبر تيلجرام</a>
-    
-    <p style="margin-top: 30px; color: #7f8c8d; font-size: 0.9rem;">جميع الحقوق محفوظة لمكتب التمار © 2026</p>
+    <a href="https://t.me/Mai7090" class="btn-telegram">راسلنا عبر تيلجرام</a>
+    <p>© 2026 مكتب التمار للخدمات المتكاملة</p>
 </body>
 </html>
