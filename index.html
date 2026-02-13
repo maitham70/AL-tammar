@@ -13,45 +13,52 @@
         .logo { width: 550px; height: auto; max-width: 100%; margin: 0 auto; display: block; }
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px; max-width: 1300px; margin: 0 auto; }
         .card { background: white; padding: 20px 10px; border-radius: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.08); border-top: 6px solid #0088cc; position: relative; }
+        
+        /* تنسيق معرض الصور */
         .slider-container { position: relative; display: flex; align-items: center; }
         .product-slider { display: flex; overflow-x: auto; gap: 10px; scroll-behavior: smooth; scrollbar-width: none; width: 100%; scroll-snap-type: x mandatory; }
         .product-item { min-width: 100%; scroll-snap-align: start; cursor: zoom-in; }
-        .product-item img { width: 100%; height: 280px; object-fit: cover; border-radius: 15px; }
+        .product-item img, .image-placeholder img { width: 100%; height: 280px; object-fit: cover; border-radius: 15px; }
+        
+        /* الأسهم */
         .nav-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.6); color: white; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; z-index: 10; font-size: 24px; }
         .nav-prev { right: 5px; } .nav-next { left: 5px; }
         .price-tag { background: #27ae60; color: white; padding: 6px 18px; border-radius: 50px; display: inline-block; margin-top: 10px; font-size: 1.1rem; }
 
-        /* نافذة التكبير المحسنة */
+        /* نافذة التكبير */
         .modal { display: none; position: fixed; z-index: 10000; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); align-items: center; justify-content: center; }
-        .modal-content { max-width: 95%; max-height: 85%; object-fit: contain; border-radius: 5px; transform: scale(1); transition: 0.3s; }
+        .modal-content { max-width: 95%; max-height: 85%; object-fit: contain; border-radius: 5px; }
         .close-btn { position: absolute; top: 20px; left: 20px; background: white; color: black; border: none; width: 45px; height: 45px; border-radius: 50%; font-size: 25px; font-weight: bold; cursor: pointer; z-index: 10001; }
 
         .footer-actions { margin-top: 30px; display: flex; flex-direction: column; align-items: center; gap: 10px; }
-        .btn { display: inline-block; background: #0088cc; color: white; padding: 15px 40px; border-radius: 100px; text-decoration: none; font-size: 1.2rem; font-weight: bold; width: 280px; box-shadow: 0 8px 20px rgba(0,136,204,0.3); }
+        .btn { display: inline-block; background: #0088cc; color: white; padding: 15px 40px; border-radius: 100px; text-decoration: none; font-size: 1.2rem; font-weight: bold; width: 280px; }
     </style>
 </head>
 <body>
 
     <header>
         <img src="logo.png" alt="مكتب التمار" class="logo">
-        <h1 style="font-size: 2rem; color: #2c3e50; margin-top:10px;">مكتب التمار</h1>
+        <h1 style="font-size: 2rem; color: #2c3e50;">مكتب التمار</h1>
     </header>
 
     <div class="grid">
+        <div class="card" style="border-top-color: #9b59b6;">
+            <h2>⏰ ساعات العمل</h2>
+            <p>من 8 صباحاً - 8 مساءً</p>
+        </div>
+
         <div class="card" style="border-top-color: #27ae60;">
             <h2>📚 معرض القرطاسية</h2>
             <div class="slider-container">
                 <button class="nav-btn nav-prev" onclick="scrollSlider('stat', -1)">&#10095;</button>
                 <div class="product-slider" id="stat">
                     <script>
-                        const prices = ["1,000 د.ع", "2,500 د.ع", "5,000 د.ع", "1,500 د.ع", "3,000 د.ع", "750 د.ع", "4,000 د.ع", "2,000 د.ع", "6,000 د.ع", "10,000 د.ع"];
-                        const names = ["منتج 1", "منتج 2", "منتج 3", "منتج 4", "منتج 5", "منتج 6", "منتج 7", "منتج 8", "منتج 9", "منتج 10"];
                         for(let i=1; i<=10; i++) {
                             document.write(`
                                 <div class="product-item" onclick="openModal('item${i}.jpeg')">
                                     <img src="item${i}.jpeg" onerror="this.src='https://via.placeholder.com/300x200?text=صورة+${i}'">
-                                    <div style="margin-top:8px;">${names[i-1]}</div>
-                                    <span class="price-tag">${prices[i-1]}</span>
+                                    <div style="margin-top:8px;">منتج قرطاسية ${i}</div>
+                                    <span class="price-tag">اضغط للسعر</span>
                                 </div>
                             `);
                         }
@@ -61,24 +68,45 @@
             </div>
         </div>
 
+        <div class="card" style="border-top-color: #3498db;">
+            <h2>📸 التصوير</h2>
+            <p>استنساخ وطباعة ملونة بجودة عالية</p>
+            <div class="image-placeholder" onclick="openModal('logo.png')">
+                <img src="logo.png" style="height: 150px; object-fit: contain;">
+            </div>
+        </div>
+
         <div class="card" style="border-top-color: #f1c40f;">
             <h2>🎧 إكسسوارات الموبايل</h2>
             <div class="slider-container">
                 <button class="nav-btn nav-prev" onclick="scrollSlider('accs', -1)">&#10095;</button>
                 <div class="product-slider" id="accs">
                     <div class="product-item" onclick="openModal('acc1.jpeg')">
-                        <img src="acc1.jpeg">
+                        <img src="acc1.jpeg" onerror="this.src='https://via.placeholder.com/300x200?text=إكسسوار+1'">
                         <div>شاحن / سماعة</div>
-                        <span class="price-tag">15,000 د.ع</span>
+                        <span class="price-tag">تواصل للسعر</span>
                     </div>
                     <div class="product-item" onclick="openModal('acc2.jpeg')">
-                        <img src="acc2.jpeg">
-                        <div>إكسسوار مميز</div>
-                        <span class="price-tag">25,000 د.ع</span>
+                        <img src="acc2.jpeg" onerror="this.src='https://via.placeholder.com/300x200?text=إكسسوار+2'">
+                        <div>كفر / حماية</div>
+                        <span class="price-tag">تواصل للسعر</span>
                     </div>
                 </div>
                 <button class="nav-btn nav-next" onclick="scrollSlider('accs', 1)">&#10094;</button>
             </div>
+        </div>
+
+        <div class="card" style="border-top-color: #e67e22;">
+            <h2>📱 صيانة الهاتف</h2>
+            <p>تصليح وبرمجة كافة أنواع الهواتف</p>
+            <div class="image-placeholder" onclick="openModal('phone_fix.jpg.jpg')">
+                <img src="phone_fix.jpg.jpg" onerror="this.src='phone_fix.jpg';">
+            </div>
+        </div>
+
+        <div class="card" style="border-top-color: #e74c3c;">
+            <h2>📍 موقعنا</h2>
+            <p>العراق - ذي قار - قضاء الفجر</p>
         </div>
     </div>
 
@@ -96,27 +124,14 @@
             const slider = document.getElementById(id);
             slider.scrollBy({ left: dir * slider.offsetWidth, behavior: 'smooth' });
         }
-
         function openModal(src) {
             document.getElementById('imageModal').style.display = 'flex';
             document.getElementById('imgFull').src = src;
-            // إضافة حالة للتاريخ لتمكين زر الرجوع من الإغلاق
             window.history.pushState({modalOpen: true}, "");
         }
-
-        function closeModal() {
-            document.getElementById('imageModal').style.display = 'none';
-        }
-
-        // الاستماع لزر الرجوع في الهاتف
-        window.onpopstate = function() {
-            closeModal();
-        };
-
-        // إغلاق عند الضغط خارج الصورة
-        document.getElementById('imageModal').onclick = function(e) {
-            if(e.target === this) closeModal();
-        };
+        function closeModal() { document.getElementById('imageModal').style.display = 'none'; }
+        window.onpopstate = function() { closeModal(); };
+        document.getElementById('imageModal').onclick = function(e) { if(e.target === this) closeModal(); };
     </script>
 </body>
 </html>
