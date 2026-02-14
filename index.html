@@ -10,23 +10,18 @@
         body { font-family: 'Tajawal', sans-serif; background-color: #f4f7f6; margin: 0; padding: 10px; text-align: center; }
         header { background: white; padding: 30px 10px; border-radius: 0 0 30px 30px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); margin-bottom: 25px; }
         .logo { width: 700px; height: auto; max-width: 100%; margin: 0 auto; display: block; }
-        
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; max-width: 1300px; margin: 0 auto; }
         .card { background: white; padding: 25px 15px; border-radius: 25px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); border-top: 8px solid #0088cc; }
-        
         .slider-container { position: relative; display: flex; align-items: center; margin-top: 15px; }
         .product-slider { display: flex; overflow-x: auto; gap: 12px; scroll-behavior: smooth; scrollbar-width: none; width: 100%; scroll-snap-type: x mandatory; }
         .product-item { min-width: 100%; scroll-snap-align: start; cursor: zoom-in; }
-        .product-item img, .static-img { width: 100%; height: 320px; object-fit: cover; border-radius: 20px; background: #eee; }
-        
+        .product-item img, .static-img { width: 100%; height: 320px; object-fit: cover; border-radius: 20px; background: #e0e0e0; }
         .nav-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.7); color: white; border: none; width: 45px; height: 45px; border-radius: 50%; cursor: pointer; z-index: 10; font-size: 26px; }
         .nav-prev { right: 5px; } .nav-next { left: 5px; }
         .price-tag { background: #27ae60; color: white; padding: 8px 20px; border-radius: 50px; display: inline-block; margin-top: 12px; font-size: 1.1rem; }
-
         .modal { display: none; position: fixed; z-index: 99999; top: 0; left: 0; width: 100%; height: 100%; background: #000; }
         .modal-content { width: 100%; height: 100%; object-fit: contain; }
         .close-btn { position: fixed; top: 20px; left: 20px; background: #e74c3c; color: white; border: none; width: 55px; height: 55px; border-radius: 50%; font-size: 35px; cursor: pointer; z-index: 100000; }
-
         .footer-actions { margin-top: 40px; display: flex; flex-direction: column; align-items: center; gap: 15px; padding-bottom: 60px; }
         .btn { background: #0088cc; color: white; padding: 18px 50px; border-radius: 100px; text-decoration: none; font-size: 1.3rem; font-weight: bold; width: 280px; }
         .copy-box { background: white; padding: 15px; border-radius: 20px; border: 2px dashed #0088cc; display: flex; align-items: center; gap: 15px; width: 320px; justify-content: space-between; }
@@ -55,8 +50,7 @@
                         for(let i=1; i<=20; i++) {
                             document.write(`
                                 <div class="product-item" onclick="openModal('item${i}_img')">
-                                    <img src="item${i}.jpeg" id="item${i}_img" 
-                                         onerror="tryNext(this, 'item${i}.jpg', 'item${i}.png')">
+                                    <img src="item${i}.jpeg" id="item${i}_img" onerror="tryNext(this, 'item${i}.jpg', 'item${i}.png', 'قرطاسية')">
                                     <div style="margin-top:10px; font-weight:bold;">منتج رقم ${i}</div>
                                     <span class="price-tag">اضغط للتكبير</span>
                                 </div>
@@ -71,8 +65,7 @@
         <div class="card" style="border-top-color: #3498db;">
             <h2>📸 التصوير والاستنساخ</h2>
             <p>طباعة ملونة وعادية</p>
-            <img src="printing.jpeg" class="static-img" id="print_img" onclick="openModal(this.src)" 
-                 onerror="tryNext(this, 'printing.jpg', 'printing.png')">
+            <img src="printing.jpeg" class="static-img" id="print_img" onclick="openModal(this.src)" onerror="tryNext(this, 'printing.jpg', 'printing.png', 'تصوير')">
         </div>
 
         <div class="card" style="border-top-color: #f1c40f;">
@@ -84,9 +77,8 @@
                         for(let j=1; j<=10; j++) {
                             document.write(`
                                 <div class="product-item" onclick="openModal('acc${j}_img')">
-                                    <img src="acc${j}.jpeg" id="acc${j}_img" 
-                                         onerror="tryNext(this, 'acc${j}.jpg', 'acc${j}.png')">
-                                    <div style="margin-top:10px;">إكسسوار ${j}</div>
+                                    <img src="acc${j}.jpeg" id="acc${j}_img" onerror="tryNext(this, 'acc${j}.jpg', 'acc${j}.png', 'إكسسوار')">
+                                    <div style="margin-top:10px;">إكسسوار رقم ${j}</div>
                                     <span class="price-tag">تواصل للسعر</span>
                                 </div>
                             `);
@@ -100,8 +92,7 @@
         <div class="card" style="border-top-color: #e67e22;">
             <h2>📱 صيانة الهاتف</h2>
             <p>تصليح وبرمجة احترافية</p>
-            <img src="phone_fix.jpeg" class="static-img" id="fix_img" onclick="openModal(this.src)" 
-                 onerror="tryNext(this, 'phone_fix.jpg', 'phone_fix.png')">
+            <img src="phone_fix.jpeg" class="static-img" id="fix_img" onclick="openModal(this.src)" onerror="tryNext(this, 'phone_fix.jpg', 'phone_fix.png', 'صيانة')">
         </div>
 
         <div class="card" style="border-top-color: #e74c3c;">
@@ -126,23 +117,15 @@
     </div>
 
     <script>
-        // دالة محسنة لمنع التحميل اللانهائي
-        function tryNext(img, next1, next2) {
-            if (img.src.includes('.jpeg')) {
-                img.src = next1;
-            } else if (img.src.includes('.jpg')) {
-                img.src = next2;
-            } else {
-                img.style.display = 'none'; // إخفاء الصورة تماماً إذا لم تكن موجودة لمنع ثقل الموقع
-                img.parentElement.style.display = 'none'; 
-            }
+        function tryNext(img, next1, next2, type) {
+            if (img.src.includes('.jpeg')) { img.src = next1; }
+            else if (img.src.includes('.jpg')) { img.src = next2; }
+            else { img.src = 'https://via.placeholder.com/400x320?text=قريباً+' + type; img.onerror = null; }
         }
-
         function scrollSlider(id, dir) {
             const slider = document.getElementById(id);
             slider.scrollBy({ left: dir * (slider.offsetWidth * 0.8), behavior: 'smooth' });
         }
-
         function openModal(idOrSrc) {
             const modal = document.getElementById('imageModal');
             const fullImg = document.getElementById('imgFull');
@@ -152,12 +135,10 @@
             document.querySelector('meta[name="viewport"]').setAttribute('content', 'width=device-width, initial-scale=1.0, user-scalable=yes');
             window.history.pushState({modalOpen: true}, "");
         }
-
         function closeModal() {
             document.getElementById('imageModal').style.display = 'none';
             document.querySelector('meta[name="viewport"]').setAttribute('content', 'width=device-width, initial-scale=1.0, user-scalable=no');
         }
-
         window.onpopstate = function() { closeModal(); };
         function copyLink() { navigator.clipboard.writeText(document.getElementById('siteUrl').innerText); alert("تم نسخ الرابط!"); }
     </script>
