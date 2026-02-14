@@ -9,31 +9,22 @@
     <style>
         #loader, .loader-wrapper { display: none !important; }
         body { font-family: 'Tajawal', sans-serif; background-color: #f4f7f6; margin: 0; padding: 10px; text-align: center; }
-        
-        /* تصميم الشعار الاحترافي الجديد */
         header { background: white; padding: 30px 10px; border-radius: 0 0 30px 30px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); margin-bottom: 25px; }
-        .logo { width: 700px; height: auto; max-width: 100%; margin: 0 auto; display: block; filter: drop-shadow(0 5px 10px rgba(0,0,0,0.1)); }
-        
+        .logo { width: 700px; height: auto; max-width: 100%; margin: 0 auto; display: block; }
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; max-width: 1300px; margin: 0 auto; }
         .card { background: white; padding: 25px 15px; border-radius: 25px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); border-top: 8px solid #0088cc; }
-        
         .slider-container { position: relative; display: flex; align-items: center; margin-top: 15px; }
         .product-slider { display: flex; overflow-x: auto; gap: 12px; scroll-behavior: smooth; scrollbar-width: none; width: 100%; scroll-snap-type: x mandatory; }
         .product-item { min-width: 100%; scroll-snap-align: start; cursor: zoom-in; }
-        .product-item img { width: 100%; height: 320px; object-fit: cover; border-radius: 20px; }
-        
+        .product-item img, .static-img { width: 100%; height: 320px; object-fit: cover; border-radius: 20px; cursor: zoom-in; }
         .nav-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.7); color: white; border: none; width: 45px; height: 45px; border-radius: 50%; cursor: pointer; z-index: 10; font-size: 26px; }
         .nav-prev { right: 5px; } .nav-next { left: 5px; }
-        
         .price-tag { background: #27ae60; color: white; padding: 8px 20px; border-radius: 50px; display: inline-block; margin-top: 12px; font-size: 1.1rem; }
-
-        /* نافذة التكبير العملاقة */
         .modal { display: none; position: fixed; z-index: 99999; top: 0; left: 0; width: 100%; height: 100%; background: #000; }
         .modal-content { width: 100%; height: 100%; object-fit: contain; }
         .close-btn { position: fixed; top: 20px; left: 20px; background: #e74c3c; color: white; border: none; width: 55px; height: 55px; border-radius: 50%; font-size: 35px; cursor: pointer; z-index: 100000; }
-
         .footer-actions { margin-top: 40px; display: flex; flex-direction: column; align-items: center; gap: 15px; padding-bottom: 60px; }
-        .btn { background: #0088cc; color: white; padding: 18px 50px; border-radius: 100px; text-decoration: none; font-size: 1.3rem; font-weight: bold; width: 280px; box-shadow: 0 10px 20px rgba(0,136,204,0.3); }
+        .btn { background: #0088cc; color: white; padding: 18px 50px; border-radius: 100px; text-decoration: none; font-size: 1.3rem; font-weight: bold; width: 280px; }
         .copy-box { background: white; padding: 15px; border-radius: 20px; border: 2px dashed #0088cc; display: flex; align-items: center; gap: 15px; width: 320px; justify-content: space-between; }
         .copy-btn { background: #0088cc; color: white; border: none; padding: 10px 20px; border-radius: 12px; cursor: pointer; font-weight: bold; }
     </style>
@@ -60,9 +51,9 @@
                         for(let i=1; i<=20; i++) {
                             document.write(`
                                 <div class="product-item" onclick="openModal('item${i}.jpeg')">
-                                    <img src="item${i}.jpeg" onerror="this.src='https://via.placeholder.com/400x320?text=قريباً+منتج+${i}'">
+                                    <img src="item${i}.jpeg" onerror="this.src='https://via.placeholder.com/400x320?text=منتج+قرطاسية+${i}'">
                                     <div style="margin-top:10px; font-weight:bold;">منتج رقم ${i}</div>
-                                    <span class="price-tag">اضغط للتدقيق بالأسعار</span>
+                                    <span class="price-tag">اضغط للتكبير</span>
                                 </div>
                             `);
                         }
@@ -75,9 +66,7 @@
         <div class="card" style="border-top-color: #3498db;">
             <h2>📸 التصوير والاستنساخ</h2>
             <p>طباعة ملونة وعادية بجودة ممتازة</p>
-            <div class="image-placeholder" onclick="openModal('logo.png')">
-                <img src="logo.png" style="width: 100%; height: 150px; object-fit: contain;">
-            </div>
+            <img src="printing.jpeg" class="static-img" onclick="openModal(this.src)" onerror="this.src='https://via.placeholder.com/400x320?text=ارفع+صورة+باسم+printing.jpeg'">
         </div>
 
         <div class="card" style="border-top-color: #f1c40f;">
@@ -86,7 +75,7 @@
                 <button class="nav-btn nav-prev" onclick="scrollSlider('accs', -1)">&#10095;</button>
                 <div class="product-slider" id="accs">
                     <script>
-                        for(let j=1; j<=5; j++) {
+                        for(let j=1; j<=10; j++) {
                             document.write(`
                                 <div class="product-item" onclick="openModal('acc${j}.jpeg')">
                                     <img src="acc${j}.jpeg" onerror="this.src='https://via.placeholder.com/400x320?text=إكسسوار+${j}'">
@@ -104,21 +93,23 @@
         <div class="card" style="border-top-color: #e67e22;">
             <h2>📱 صيانة الهاتف</h2>
             <p>تصليح وبرمجة بأحدث الأجهزة</p>
-            <div class="image-placeholder" onclick="openModal('phone_fix.jpg.jpg')">
-                <img src="phone_fix.jpg.jpg" onerror="this.src='phone_fix.jpg';" style="width: 100%; border-radius: 15px;">
-            </div>
+            <img src="phone_fix.jpeg" class="static-img" onclick="openModal(this.src)" onerror="this.src='https://via.placeholder.com/400x320?text=ارفع+صورة+باسم+phone_fix.jpeg'">
         </div>
 
-        <div class="card" style="border-top-color: #e74c3c;"><h2>📍 موقعنا</h2><p>العراق - ذي قار - قضاء الفجر</p></div>
+        <div class="card" style="border-top-color: #e74c3c;">
+            <h2>📍 موقعنا</h2>
+            <p style="font-size: 1.2rem; color: #c0392b; font-weight: bold;">
+                ذي قار / قضاء الفجر <br> حي البوسعد / شارع الجامع
+            </p>
+        </div>
     </div>
 
     <div class="footer-actions">
         <a href="https://t.me/Mai7090" class="btn">تواصل عبر تليجرام</a>
         <div class="copy-box">
-            <span id="siteUrl" style="font-size: 0.8rem; color: #34495e;">https://maitham70.github.io/AL-tammar/</span>
+            <span id="siteUrl" style="font-size: 0.8rem;">https://maitham70.github.io/AL-tammar/</span>
             <button class="copy-btn" onclick="copyLink()">نسخ الرابط</button>
         </div>
-        <p style="color: #7f8c8d; font-size: 0.9rem; margin-top: 20px;">© 2026 مكتب التمار - جميع الحقوق محفوظة</p>
     </div>
 
     <div id="imageModal" class="modal">
@@ -143,7 +134,7 @@
             document.querySelector('meta[name="viewport"]').setAttribute('content', 'width=device-width, initial-scale=1.0, user-scalable=no');
         }
         window.onpopstate = function() { closeModal(); };
-        function copyLink() { navigator.clipboard.writeText(document.getElementById('siteUrl').innerText); alert("تم نسخ رابط الموقع بنجاح!"); }
+        function copyLink() { navigator.clipboard.writeText(document.getElementById('siteUrl').innerText); alert("تم نسخ الرابط!"); }
     </script>
 </body>
 </html>
