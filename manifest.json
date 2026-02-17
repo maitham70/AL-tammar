@@ -1,4 +1,5 @@
-"name": "مكتب التمار",
+{
+  "name": "مكتب التمار",
   "short_name": "التمار",
   "start_url": "index.html",
   "display": "standalone",
@@ -8,7 +9,14 @@
     {
       "src": "logo.png",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
     }
   ]
 }
