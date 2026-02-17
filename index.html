@@ -156,5 +156,33 @@
     </script>
 </body>
 </html>
+<div style="text-align: center; margin: 20px; padding: 15px; background: #e3f2fd; border-radius: 10px; border: 1px dashed #007bff;">
+    <p style="margin-bottom: 10px; font-weight: bold; color: #0056b3;">ثبّت تطبيق مكتب التمار على هاتفك الآن</p>
+    <button onclick="installApp()" style="padding: 10px 20px; background-color: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer;">
+        تثبيت التطبيق 📱
+    </button>
+</div>
+
+<script>
+let deferredPrompt;
+window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+});
+
+function installApp() {
+    if (deferredPrompt) {
+        deferredPrompt.prompt();
+        deferredPrompt.userChoice.then((choiceResult) => {
+            if (choiceResult.outcome === 'accepted') {
+                console.log('User accepted the install prompt');
+            }
+            deferredPrompt = null;
+        });
+    } else {
+        alert("لتثبيت التطبيق: اضغط على النقاط الثلاث في أعلى المتصفح ثم اختر 'تثبيت التطبيق' أو 'إضافة إلى الشاشة الرئيسية'");
+    }
+}
+</script>
 
 
