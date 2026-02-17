@@ -47,7 +47,7 @@
                 <button class="nav-btn nav-prev" onclick="scrollSlider('stat', -1)">&#10095;</button>
                 <div class="product-slider" id="stat">
                     <script>
-                        for(let i=1; i<=20; i++) {
+                        for(let i=1; i<=25; i++) {
                             document.write(`<div class="product-item" onclick="openModal('item${i}_img')"><img src="item${i}.jpeg" id="item${i}_img" onerror="tryNext(this, 'item${i}.jpg', 'item${i}.png', 'قرطاسية')"><div style="margin-top:10px; font-weight:bold;">منتج رقم ${i}</div><span class="price-tag">اضغط للتكبير</span></div>`);
                         }
                     </script>
@@ -150,3 +150,4 @@
     </script>
 </body>
 </html>
+
